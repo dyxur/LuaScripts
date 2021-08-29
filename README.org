@@ -1,0 +1,64 @@
+#+Title: Lua Scirpts
+#+author: wy
+
+* About the scripts
+** compare.lua
+*** Args
+1. File a: pathToFile
+2. File b: pathToFile
+*** Output
+- File called "compared.txt"
+*** Description
+compare.lua takes two text files and compares each line 1:1. After it's done
+it spits out a file containing lists of lines only from file A, only from file B
+and a list of lines appearing in both.
+There is nothing fancy about it. It's case sensitive and sure as hell won't correct
+any typos.
+The original use case was to compare 2 game bundles from Itch with 1000+ games and other
+things. To get the two lists I wrote a small JS script.
+I might update this/make a V2 that does the part of the JS script as well.
+
+** dice_order.lua
+*** Args
+- repeats: int
+*** Output
+- Amount of tries on which repeat (if beating lowest amount of tries)
+- MEAN tries to get the result
+- Lowest tries needed
+- Time of execution
+*** Description
+Tell the script how many repeats it should do. After that it rolls a dice
+six times as many times as it has to, to roll 1,2,3,4,5,6 in this order.
+During the execution if the amount of tries it took was lower than the current
+lowest it will print the amount of tries and on which repeat it happened.
+*The best got was 2 tries*
+At the end one gets 3 values whitch are liested in the outputs above.
+The reason I wrote this was, because I was bored and happend to think of dice
+thanks to 'Kaiji'. I then tried to roll a dice to get the sequence 123456 or 654321,
+but I never managed to get it. So I wondered how many tries this would take on AVG.
+an this is how this script came to be.
+The script allways does 6 throws even if the first throw is not a 1.
+*** TODO Improve throwing
+- [ ] Continue to next try if on throw is out of order.
+
+** dice_throw_occurences.lua
+*** Args
+- numberOfTries: int
+*** Output
+- For every number occurences and percentage
+*** Description
+TBD
+
+** THLW_points.lua
+*** Args
+1. timePerFight: int
+2. costPerFight: int
+3. maxSpiritPoints: int
+4. eventPointsEarned: int
+*** Output
+- Console: Time to use up all SP
+- Console: Event points earned in that time
+*** Description
+TBD
+
+* Why do I write these?
