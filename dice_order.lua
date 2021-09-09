@@ -15,7 +15,11 @@ for i=1, repeats do
 		tries = tries + 1
 	
 		for i=1, 6 do
-			sequence = sequence..math.random(1, 6)
+			numberThrown = math.random(1, 6)
+			
+			if i ~= numberThrown then break end
+			
+			sequence = sequence..numberThrown
 		end
 	until sequence == '123456'
 	
@@ -33,6 +37,6 @@ end
 
 endTime = os.time()
 
-print('MEAN tries: '..allTries/repeats)
+print('AVG tries: '..allTries/repeats)
 print('lowest tries: '..lowest)
 print('The execution took '..endTime - startTime..' seconds')
