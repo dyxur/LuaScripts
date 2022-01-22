@@ -63,18 +63,18 @@ end
 -- Append a string to the log
 function writeToLog(string)
     local f = io.open('ping.log', 'a')
-    f:write(string)
+    f:write(string, "\n")
     f:close()
 end
 
-local dateTimeNow = os.date("%Y-%m-%d/%H-%M")
+local dateTimeNow = os.date("{year=%Y,month=%m,day=%d,hour=%H,minute=%M}")
 local pingRawWingo = os.capture('ping -c 5 www.wingo.ch')
 local pingRaw1111 = os.capture('ping -c 5 1.1.1.1')
 
 local wingo = getRelevantPingData(pingRawWingo)
 local onex4 = getRelevantPingData(pingRaw1111)
 
-writeToLog('{wingo='..getTableFromData(wingo)..', onex4='..getTableFromData(onex4)..'}')
+writeToLog('{date='..dateTimeNow..', wingo='..getTableFromData(wingo)..', onex4='..getTableFromData(onex4)..'}')
 
 --[[
     -- An easy way to read the generated data from another lua script:
