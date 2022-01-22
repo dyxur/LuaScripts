@@ -2,6 +2,41 @@
 #+author: wy
 
 * About the scripts
+** createInternetLog.lua
+*** Output
+- Data appended to the ping.log (Created if not existing) file
+*** Description
+This is a little Lua script used to monitor my internet situation, since it has been quite
+unstable since December 2021 upto date of writing.
+The script simply pings the website of my ISP and 1.1.1.1 (to have a second point of reference) and
+then creates from that data a string whitch can be read as a table with `load("return..string")()` for
+further processing.
+*** Data points
+- DateTime
+- ISP website
+  - Name
+  - Transmitted packets
+  - Received packets
+  - Lossed percentage
+  - Times
+    - Min
+    - Avg
+    - Max
+- 1.1.1.1
+  - Name
+  - Transmitted packets
+  - Received packets
+  - Lossed percentage
+  - Times
+    - Min
+    - Avg
+    - Max
+*** Todo
+- [ ] Add Args for the file location
+- [ ] Add Args for the ping targets
+  - [ ] Add ability to use as many or little targets as possible
+- [ ] Create a separate graphical output of the data (probably gonna use a lib or framework for that)
+
 ** compare.lua
 *** Args
 1. File a: pathToFile
